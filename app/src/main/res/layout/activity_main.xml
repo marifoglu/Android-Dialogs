@@ -58,10 +58,18 @@
         android:text="Calender Picker Dialog" />
 
     <Button
-        android:id="@+id/alertDialogCloseButton"
+        android:id="@+id/alertDialogButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|center_horizontal"
         android:layout_marginTop="32dp"
-        android:text="Alert Dialog - Close" />
+        android:text="Alert Dialog - Custom" />
+
+    <Button
+        android:id="@+id/alertDialogCustomButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_marginTop="32dp"
+        android:text="Alert Dialog - Classic" />
 </LinearLayout>
