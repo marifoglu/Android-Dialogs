@@ -20,10 +20,8 @@ class SpinnerFragment : DialogFragment() {
     private var _binding : FragmentSpinnerBinding? = null
     private val binding get() = _binding!!
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
@@ -62,8 +60,7 @@ class SpinnerFragment : DialogFragment() {
                 vehicleManufacturerList.add(vehicle.brand)
             }
 
-            val vehicleManufacturerAdapter : ArrayAdapter<String> = ArrayAdapter(requireContext(),
-                androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, vehicleManufacturerList)
+            val vehicleManufacturerAdapter : ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, vehicleManufacturerList)
 
             val vehicleManufacturerSpinner = binding.vehicleManufacturer
             vehicleManufacturerSpinner.adapter = vehicleManufacturerAdapter
@@ -85,7 +82,7 @@ class SpinnerFragment : DialogFragment() {
                     val defaultItem: String = vehicleManufacturerList[0]
 
                     if (selectedManufacturer != defaultItem) {
-                        Toast.makeText(requireContext(), "$selectedManufacturer selected!", Toast.LENGTH_LONG).show()
+                        Toast.makeText(requireContext(), "$selectedManufacturer selected!", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
@@ -107,9 +104,8 @@ class SpinnerFragment : DialogFragment() {
             }
 
             val carManufacturerAdapter: ArrayAdapter<String> = ArrayAdapter(
-                requireContext(), com.google.android.material.R.layout.support_simple_spinner_dropdown_item,
-                carManufacturerList
-            )
+                requireContext(), android.R.layout.simple_spinner_dropdown_item, carManufacturerList)
+
             val carManufacturerSpinner = binding.vehicleManufacturer
             carManufacturerSpinner.adapter = carManufacturerAdapter
             carManufacturerSpinner.setSelection(0)
@@ -125,7 +121,7 @@ class SpinnerFragment : DialogFragment() {
                         val carModelsList = selectedCarListAdapter.models
                         val carModelsAdapter: ArrayAdapter<String> = ArrayAdapter(
                             requireContext(),
-                            com.google.android.material.R.layout.support_simple_spinner_dropdown_item,
+                            android.R.layout.simple_spinner_dropdown_item,
                             carModelsList
                         )
                         val carModelsSpinner = binding.vehicleModel
@@ -139,11 +135,11 @@ class SpinnerFragment : DialogFragment() {
 
                             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                                 if (position != 0) {
-                                    val selectedCarModel = carModelsList[position - 1]
+                                    val selectedCarModel = carModelsList[position]
                                     Toast.makeText(
                                         requireContext(),
                                         "$selectedCarModel selected!",
-                                        Toast.LENGTH_LONG
+                                        Toast.LENGTH_SHORT
                                     ).show()
                                 }
                             }
@@ -162,7 +158,7 @@ class SpinnerFragment : DialogFragment() {
         }
 
         val vehicleYearAdapter : ArrayAdapter<String> = ArrayAdapter(requireContext(),
-            androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, vehicleYearList)
+            android.R.layout.simple_spinner_dropdown_item, vehicleYearList)
 
         val vehicleYearSpinner = binding.vehicleYear // year
         vehicleYearSpinner.adapter = vehicleYearAdapter
@@ -194,5 +190,4 @@ class SpinnerFragment : DialogFragment() {
         super.onDestroy()
         _binding = null
     }
-
 }

@@ -8,6 +8,8 @@ import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import android.widget.Toast
 import com.darth.alert_dialogs.databinding.ActivityMainBinding
 import com.darth.alert_dialogs.dialogs.SpinnerFragment
@@ -25,6 +27,35 @@ class MainActivity : AppCompatActivity() {
         binding.spinnerButton.setOnClickListener {
             val dialog = SpinnerFragment()
             dialog.show(supportFragmentManager, "Spinner Fragment")
+        }
+
+        // Alert Dialog Custom
+        binding.radioButton.setOnClickListener {
+            val radioDialogBinding = layoutInflater.inflate(R.layout.radio_dialog, null)
+
+            val radioDialog = Dialog(this)
+            radioDialog.setContentView(radioDialogBinding)
+
+            radioDialog.setCancelable(true)
+            radioDialog.show()
+
+            val radioCloseBtn = radioDialogBinding.findViewById<Button>(R.id.radioDialogClose)
+            radioCloseBtn.setOnClickListener {
+                radioDialog.dismiss()
+            }
+            val radioSaveBtn = radioDialogBinding.findViewById<Button>(R.id.radioDialogSave)
+            radioSaveBtn.setOnClickListener {
+                val radioGroup = radioDialogBinding.findViewById<RadioGroup>(R.id.radioGroup)
+                val selectedID = radioGroup.checkedRadioButtonId
+
+                if (selectedID != -1) {
+                    val radioButton = radioDialogBinding.findViewById<RadioButton>(selectedID)
+                    val selectedValue = radioButton.text.toString()
+                    Toast.makeText(this@MainActivity, "Selected Value: $selectedValue", Toast.LENGTH_SHORT).show()
+                }
+
+                radioDialog.dismiss()
+            }
         }
 
         // Alert Dialog Custom
