@@ -23,6 +23,39 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
+
+        // Set click listener for multiChooseButton
+        binding.multiChooseButton.setOnClickListener {
+            val items = arrayOf("Option 1", "Option 2", "Option 3", "Option 4", "Option 5")
+            val checkedItems = booleanArrayOf(false, false, false, false, false)
+            val selectedItems = ArrayList<Int>()
+
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Select Options")
+                .setMultiChoiceItems(items, checkedItems) { _, index, isChecked ->
+                    if (isChecked) {
+                        selectedItems.add(index)
+                    } else if (selectedItems.contains(index)) {
+                        selectedItems.remove(index)
+                    }
+                }
+                .setPositiveButton("OK") { _, _ ->
+                    val selectedOptions = ArrayList<String>()
+                    for (index in selectedItems) {
+                        selectedOptions.add(items[index])
+                    }
+                    // Perform any further actions with the selected options
+                    // For example, display a Toast message with the selected options
+                    val message = "Selected options: ${selectedOptions.joinToString(", ")}"
+                    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+                }
+                .setNegativeButton("Cancel") { dialog, _ ->
+                    dialog.dismiss()
+                }
+                .show()
+        }
+
+
         // Alert Dialog Spinner Dialog Fragment
         binding.spinnerButton.setOnClickListener {
             val dialog = SpinnerFragment()
