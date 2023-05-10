@@ -12,6 +12,7 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Toast
 import com.darth.alert_dialogs.databinding.ActivityMainBinding
+import com.darth.alert_dialogs.dialogs.LoginDialogFragment
 import com.darth.alert_dialogs.dialogs.SpinnerFragment
 
 
@@ -55,7 +56,10 @@ class MainActivity : AppCompatActivity() {
                 .show()
         }
 
-
+        binding.loginButton.setOnClickListener {
+            val dialog = LoginDialogFragment()
+            dialog.show(supportFragmentManager, "LoginDialog")
+        }
         // Alert Dialog Spinner Dialog Fragment
         binding.spinnerButton.setOnClickListener {
             val dialog = SpinnerFragment()

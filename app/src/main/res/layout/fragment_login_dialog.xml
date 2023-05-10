@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".dialogs.LoginDialogFragment"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/regFrameLayout"
+        android:layout_width="340dp"
+        android:layout_height="200dp"
+        android:layout_margin="10dp"
+        android:layout_marginBottom="9dp"
+        android:layout_gravity="center">
+
+        <EditText
+            android:id="@+id/usernameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/username" />
+
+        <EditText
+            android:id="@+id/passwordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/password"
+            android:inputType="textPassword" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/loginButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/save"
+                android:layout_marginEnd="15dp"
+                android:backgroundTint="@color/purple_200" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/cancelButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/close"
+                android:layout_marginStart="15dp"
+                android:backgroundTint="@color/teal_200" />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout >

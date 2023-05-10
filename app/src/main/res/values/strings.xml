@@ -13,4 +13,6 @@
     <string name="good">Good</string>
     <string name="great">Great!</string>
     <string name="save">Save</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
 </resources>
