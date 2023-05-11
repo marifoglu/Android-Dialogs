@@ -12,6 +12,7 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Toast
 import com.darth.alert_dialogs.databinding.ActivityMainBinding
+import com.darth.alert_dialogs.dialogs.CalendarPickerDialogFragment
 import com.darth.alert_dialogs.dialogs.LoginDialogFragment
 import com.darth.alert_dialogs.dialogs.SpinnerFragment
 
@@ -23,9 +24,36 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Radio Button Dialog
+        binding.radioButton.setOnClickListener {
+            val radioDialogBinding = layoutInflater.inflate(R.layout.radio_dialog, null)
 
+            val radioDialog = Dialog(this)
+            radioDialog.setContentView(radioDialogBinding)
 
-        // Set click listener for multiChooseButton
+            radioDialog.setCancelable(true)
+            radioDialog.show()
+
+            val radioCloseBtn = radioDialogBinding.findViewById<Button>(R.id.radioDialogClose)
+            radioCloseBtn.setOnClickListener {
+                radioDialog.dismiss()
+            }
+            val radioSaveBtn = radioDialogBinding.findViewById<Button>(R.id.radioDialogSave)
+            radioSaveBtn.setOnClickListener {
+                val radioGroup = radioDialogBinding.findViewById<RadioGroup>(R.id.radioGroup)
+                val selectedID = radioGroup.checkedRadioButtonId
+
+                if (selectedID != -1) {
+                    val radioButton = radioDialogBinding.findViewById<RadioButton>(selectedID)
+                    val selectedValue = radioButton.text.toString()
+                    Toast.makeText(this@MainActivity, "Selected Value: $selectedValue", Toast.LENGTH_SHORT).show()
+                }
+
+                radioDialog.dismiss()
+            }
+        }
+
+        // MultiChoose Dialog
         binding.multiChooseButton.setOnClickListener {
             val items = arrayOf("Option 1", "Option 2", "Option 3", "Option 4", "Option 5")
             val checkedItems = booleanArrayOf(false, false, false, false, false)
@@ -56,46 +84,25 @@ class MainActivity : AppCompatActivity() {
                 .show()
         }
 
-        binding.loginButton.setOnClickListener {
-            val dialog = LoginDialogFragment()
-            dialog.show(supportFragmentManager, "LoginDialog")
-        }
-        // Alert Dialog Spinner Dialog Fragment
+        // Spinner Dialog
         binding.spinnerButton.setOnClickListener {
             val dialog = SpinnerFragment()
             dialog.show(supportFragmentManager, "Spinner Fragment")
         }
 
-        // Alert Dialog Custom
-        binding.radioButton.setOnClickListener {
-            val radioDialogBinding = layoutInflater.inflate(R.layout.radio_dialog, null)
-
-            val radioDialog = Dialog(this)
-            radioDialog.setContentView(radioDialogBinding)
-
-            radioDialog.setCancelable(true)
-            radioDialog.show()
-
-            val radioCloseBtn = radioDialogBinding.findViewById<Button>(R.id.radioDialogClose)
-            radioCloseBtn.setOnClickListener {
-                radioDialog.dismiss()
-            }
-            val radioSaveBtn = radioDialogBinding.findViewById<Button>(R.id.radioDialogSave)
-            radioSaveBtn.setOnClickListener {
-                val radioGroup = radioDialogBinding.findViewById<RadioGroup>(R.id.radioGroup)
-                val selectedID = radioGroup.checkedRadioButtonId
-
-                if (selectedID != -1) {
-                    val radioButton = radioDialogBinding.findViewById<RadioButton>(selectedID)
-                    val selectedValue = radioButton.text.toString()
-                    Toast.makeText(this@MainActivity, "Selected Value: $selectedValue", Toast.LENGTH_SHORT).show()
-                }
-
-                radioDialog.dismiss()
-            }
+        // Login Dialog
+        binding.loginButton.setOnClickListener {
+            val dialog = LoginDialogFragment()
+            dialog.show(supportFragmentManager, "LoginDialog")
         }
 
-        // Alert Dialog Custom
+        // Calender selection Dialog
+        binding.calenderButton.setOnClickListener {
+            val dialog = CalendarPickerDialogFragment()
+            dialog.show(supportFragmentManager, "CalendarPickerDialog")
+        }
+        
+        // Alert Custom Dialog
         binding.alertDialogButton.setOnClickListener {
             val alertDialogBinding = layoutInflater.inflate(R.layout.custom_alert_dialog, null)
 
@@ -112,7 +119,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // Alert Dialog Classic
+        // Alert Classic Dialog
         binding.alertDialogCustomButton.setOnClickListener {
             val alertDialogBuilder = AlertDialog.Builder(this)
             alertDialogBuilder.setTitle("Custom AlertDialog")
