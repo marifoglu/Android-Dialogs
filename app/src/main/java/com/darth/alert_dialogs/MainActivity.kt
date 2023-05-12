@@ -15,6 +15,7 @@ import com.darth.alert_dialogs.databinding.ActivityMainBinding
 import com.darth.alert_dialogs.dialogs.CalendarPickerDialogFragment
 import com.darth.alert_dialogs.dialogs.LoginDialogFragment
 import com.darth.alert_dialogs.dialogs.SpinnerFragment
+import com.darth.alert_dialogs.dialogs.TimePickerDialogFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -100,6 +101,12 @@ class MainActivity : AppCompatActivity() {
         binding.calenderButton.setOnClickListener {
             val dialog = CalendarPickerDialogFragment()
             dialog.show(supportFragmentManager, "CalendarPickerDialog")
+        }
+
+        // Time selection Dialog
+        binding.timeButton.setOnClickListener {
+            val dialog = TimePickerDialogFragment()
+            dialog.show(supportFragmentManager, "TimePickerDialog")
         }
         
         // Alert Custom Dialog
