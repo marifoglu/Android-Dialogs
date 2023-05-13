@@ -108,7 +108,7 @@ class MainActivity : AppCompatActivity() {
             val dialog = TimePickerDialogFragment()
             dialog.show(supportFragmentManager, "TimePickerDialog")
         }
-        
+
         // Alert Custom Dialog
         binding.alertDialogButton.setOnClickListener {
             val alertDialogBinding = layoutInflater.inflate(R.layout.custom_alert_dialog, null)
@@ -129,7 +129,7 @@ class MainActivity : AppCompatActivity() {
         // Alert Classic Dialog
         binding.alertDialogCustomButton.setOnClickListener {
             val alertDialogBuilder = AlertDialog.Builder(this)
-            alertDialogBuilder.setTitle("Custom AlertDialog")
+            alertDialogBuilder.setTitle("Classic AlertDialog")
             alertDialogBuilder.setMessage("Do you want to save this repository?")
             alertDialogBuilder.setPositiveButton("Yes") { dialog: DialogInterface, _: Int ->
                 Toast.makeText(this@MainActivity, "Thanks :)", Toast.LENGTH_LONG).show()

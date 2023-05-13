@@ -8,68 +8,67 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/radioButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|center_horizontal"
-        android:layout_marginTop="32dp"
-        android:text="Radio Dialog" />
+        android:layout_marginTop="18dp"
+        android:text="@string/radio_dialog" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/multiChooseButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|center_horizontal"
-        android:layout_marginTop="32dp"
-        android:text="Multi Choose Dialog" />
+        android:layout_marginTop="18dp"
+        android:text="@string/multi_choose_dialog" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/spinnerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|center_horizontal"
-        android:layout_marginTop="32dp"
-        android:text="Spinner Dialog" />
+        android:layout_marginTop="18dp"
+        android:text="@string/spinner_dialog" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|center_horizontal"
-        android:layout_marginTop="32dp"
-        android:text="Login Dialog" />
+        android:layout_marginTop="18dp"
+        android:text="@string/login_dialog" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/calenderButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|center_horizontal"
-        android:layout_marginTop="32dp"
-        android:text="Calender Picker Dialog" />
+        android:layout_marginTop="18dp"
+        android:text="@string/calender_picker_dialog" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/timeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|center_horizontal"
-        android:layout_marginTop="32dp"
-        android:text="Time Picker Dialog" />
+        android:layout_marginTop="18dp"
+        android:text="@string/time_picker_dialog" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/alertDialogButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|center_horizontal"
-        android:layout_marginTop="32dp"
-        android:text="Alert Dialog - Custom" />
+        android:layout_marginTop="18dp"
+        android:text="@string/alert_dialog_custom" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/alertDialogCustomButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|center_horizontal"
-        android:layout_marginTop="32dp"
-        android:text="Alert Dialog - Classic" />
+        android:layout_marginTop="18dp"
+        android:text="@string/alert_dialog_classic" />
 </LinearLayout>
